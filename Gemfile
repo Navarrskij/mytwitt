@@ -43,6 +43,8 @@ gem 'devise'
 gem 'carrierwave', '~> 1.0'
 gem "rmagick"
 gem "mini_magick"
+gem 'omniauth'
+gem 'omniauth-twitter'
 
 
 group :development, :test do

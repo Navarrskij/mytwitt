@@ -7,7 +7,7 @@
 				p
 			  	- @messages.each do |message|
 			    	p
-			    	.messageuser_session_path
+			    	.message
 				    	= link_to message.body, message
 				    	p
 				    	= link_to message.created_at.strftime(" Posted on %b %e, %Y at %k:%M"), message
