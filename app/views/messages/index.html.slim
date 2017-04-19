@@ -1,0 +1,17 @@
+.container
+.index
+	.row
+		.col-md-4
+			- if current_user
+				= render partial: 'new' 
+				p
+			  	- @messages.each do |message|
+			    	p
+			    	.messageuser_session_path
+				    	= link_to message.body, message
+				    	p
+				    	= link_to message.created_at.strftime(" Posted on %b %e, %Y at %k:%M"), message
+				    	p
+				    	= image_tag message.picture.url(:thumb) if message.picture?
+			- else
+				h2 = link_to "Авторизировться!", new_user_session_path

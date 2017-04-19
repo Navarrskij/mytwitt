@@ -1,9 +1,10 @@
 class MessagesController < ApplicationController
 
   before_action :load_message, only: [:show, :edit, :update]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @messages = Message.all
+    @messages = Message.all.order("created_at DESC")
   end
 
   def show
@@ -17,9 +18,9 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(messages_params)
+    @message = current_user.messages.build(messages_params)
     if @message.save
-      redirect_to action: :index
+      redirect_to action: :index, notice: "Twitt successfully created"
     else
       render :new
     end
@@ -35,6 +36,6 @@ class MessagesController < ApplicationController
   end
 
   def messages_params
-    params.require(:message).permit(:body)
+    params.require(:message).permit(:body, :picture)
   end
 end
