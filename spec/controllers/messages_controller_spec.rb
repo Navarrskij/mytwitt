@@ -48,8 +48,7 @@ RSpec.describe MessagesController, type: :controller do
 
       it 're_renders new view' do
         post :create, message: attributes_for(:invalid_message)
-        expect(response).to render_template :new
-      end
+        expect(response).to redirect_to root_path(assigns(:messages))
     end
   end
 end
