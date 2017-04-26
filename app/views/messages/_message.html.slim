@@ -1,14 +1,14 @@
 - @messages.each do |message|
-	.messages
-		.row
-			.col-md-4
-    		= image_tag message.picture.url(:thumb) if message.picture?
-			.col-md-8
-				.row
-					.col-md-12
-    				= message.body
-				.row
-					.col-md-3.mess-time
-    				= message.created_at.strftime(" Posted on %b %e, %Y at %k:%M")
-    			.col-md-2.pull-right
-    				= link_to "View", "https://www.twitter.com/#{message.user}"
+  .messages
+    .row
+      .col-md-4
+        = image_tag message.picture.url(:thumb) if message.picture?
+      .col-md-8
+        .row
+          .col-md-12
+              = message.body
+          .row
+            .col-md-6.mess-time
+              = message.created_at.strftime(" Posted on %b %e, %Y at %k:%M")
+            .col-md-6.pull-right
+              = link_to "View", "https://www.twitter.com/#{message.user}"
