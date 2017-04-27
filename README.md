@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Features
 
-Things you may want to cover:
+The application allows you to log in through Twitter and send twitts with images to Twitter.
 
-* Ruby version
+Installation
 
-* System dependencies
+$ git clone git@github.com:Navarrskij/mytwitt.git
+$ cd mytwitt/
+$ bundle
+$ mv /config/database.yml.sample /config/database.yml
+$ rake db:create
+$ rake db:migrate
+$ mv /config/secrats.yml.sample /config/secrets.yml
 
-* Configuration
+After that you will need to head to https://apps.twitter.com/ and setup a new application. To do that you have to click on the 'Create New App'.
 
-* Database creation
+Write your keys in secrets.yml:
 
-* Database initialization
+twitter_app_id: your_twitter_app_id
+twitter_app_secret: your_twitter_app_secret
+consumer_key: your_consumer_key
+consumer_secret: your_consumer_secret
+access_token: your_access_token
+access_token_secret: your_access_token_secret
 
-* How to run the test suite
+$ rails s
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Go to http://localhost:3000/, sign in with your twitter account and go twitts!!
